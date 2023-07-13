@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int calculateGCD(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return calculateGCD(b, a % b);
+}
+
+int calculateLCM(int a, int b, int c) {
+    return calculateGCD(calculateGCD(a, b), c);
+}
+
+int main() {
+    int num1, num2, num3;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &num1, &num2, &num3);
+
+    int gcd = calculateLCM(num1, num2, num3);
+
+    printf("The largest common divisor is: %d\n", gcd);
+
+    return 0;
+}
